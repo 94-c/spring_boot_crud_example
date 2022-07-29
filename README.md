@@ -26,11 +26,29 @@
     * 기본값이 true이기 때문에 의존성 주입을 할 대상을 찾지 못한다면 구동이 실패한다.
 * @PathVariable
     * HTTP 요청에 대해 매칭되는 request parameter값이 자동으로 들어오는 어노테이션
-      ![img_1.png](img_1.png)
+``` java
+  @GetMapping("/productById/{id}")
+    public Product findByProductId(@PathVariable int id) {
+        return service.findByProductId(id);
+    }
+  ```
 * @RequestParam
     * HTTP Get 요청에 대해 매칭되는 request parameter값이 자동으로 들어오는 어노테이션
 * @RequestBody
     * HTTP Post 요청에 대해서만 처리하는 어노테이션
         * HTTP Post 요청에 대해 Request body에 있는 request message에서 값을 얻어와 매칭한다.
-    ![img.png](img.png)  
-
+``` java
+  @PostMapping("/createProduct")
+    public Product createProduct(@RequestBody Product product) {
+        return service.saveProduct(product);
+    }
+  ```
+📌 @RequestParam와 @PathVariable 동시 사용 예정
+``` java
+  @GetMapping("/createProduct/{id}/date")
+    public Product createProduct(@PathVariable("id") int id,
+                                 @RequestParam(value = "date", required = false) Date dateOrNull) {
+    }
+  ```
+* 구분자{id}는 @PathVariable("id")로, 뒤에 이어붙은 Parameter는 @RequestParam("date")로 받아온다.
+------------------
