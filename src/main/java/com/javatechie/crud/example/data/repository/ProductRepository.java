@@ -1,6 +1,6 @@
-package com.javatechie.crud.example.repository;
+package com.javatechie.crud.example.data.repository;
 
-import com.javatechie.crud.example.entity.Product;
+import com.javatechie.crud.example.data.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {

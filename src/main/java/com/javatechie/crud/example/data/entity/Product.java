@@ -1,4 +1,4 @@
-package com.javatechie.crud.example.entity;
+package com.javatechie.crud.example.data.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +18,7 @@ public class Product {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     private String name;
 
